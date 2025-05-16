@@ -24,9 +24,16 @@ const io = new Server(server, {
 })
 
 //socketIo
+let latestdata = null
+
 io.on('connection', (socket) => {
+    if (latestdata) {
+        socket.emit('display-data', latestdata)
+    }
+
     socket.on('formData', (data) => {
         // console.log(data);
+        latestdata = data
         io.emit('display-data', data)
     })
 

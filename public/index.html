@@ -73,11 +73,12 @@
             const fullName = fullNameInput.value
             const email = emailInput.value
             const message = messageInput.value
-            console.log(fullName);
-            console.log(email);
-            console.log(message);
+            // console.log(fullName);
+            // console.log(email);
+            // console.log(message);
 
             socket.emit('formData', { fullName, email, message })
+            window.location.href = 'display.html';
         })
 
     </script>
