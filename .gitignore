@@ -1,0 +1,27 @@
+# Node modules
+node_modules/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# Environment variables
+.env
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Optional: Build artifacts or uploads (if applicable)
+dist/
+build/
+public/uploads/
+
+# Optional: IDE/editor specific files
+.vscode/
+.idea/
+*.swp
+
+# Optional: Dependency lock if not needed
+# package-lock.json

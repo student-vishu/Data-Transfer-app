@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Input</title>
+    <style>
+        form {
+            width: 60%;
+            margin: 30%;
+            margin-top: 10%;
+            padding: 70px;
+        }
+
+        table {
+            border: 3px solid black;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <form id="form">
+        <table border="2px">
+            <tr>
+                <td>
+                    <label for="">Full Name:</label>
+                </td>
+                <td>
+                    <input type="text" id="name" placeholder="Enter your name" required><br><br>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="">Email:</label>
+                </td>
+                <td>
+                    <input type="email" id="email" placeholder="Enter your email" required><br><br>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="">Message:</label>
+                </td>
+                <td>
+                    <input type="text" id="message" placeholder="Enter your message" required><br><br>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2"><button id="sendBtn" style="width: 100%;">Send</button></td>
+            </tr>
+        </table>
+    </form>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+
+        const socket = io()
+        const fullNameInput = document.getElementById('name')
+        const emailInput = document.getElementById('email')
+        const messageInput = document.getElementById('message')
+        const sendBtn = document.getElementById('sendBtn')
+
+        sendBtn.addEventListener('click', (e) => {
+            e.preventDefault()
+
+            const fullName = fullNameInput.value
+            const email = emailInput.value
+            const message = messageInput.value
+            console.log(fullName);
+            console.log(email);
+            console.log(message);
+
+            socket.emit('formData', { fullName, email, message })
+        })
+
+    </script>
+</body>
+
+</html>
